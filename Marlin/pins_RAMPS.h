@@ -58,7 +58,7 @@
 #ifdef IS_RAMPS_13
   #define SERVO0_PIN        7   // RAMPS_13 // Will conflict with BTN_EN2 on LCD_I2C_VIKI
 #else
-  #define SERVO0_PIN       11
+  #define SERVO0_PIN       4
 #endif
 #define SERVO1_PIN          6
 #define SERVO2_PIN          5
@@ -71,10 +71,10 @@
 //
 #define X_MIN_PIN           3
 #ifndef X_MAX_PIN
-  #define X_MAX_PIN         2
+  #define X_MAX_PIN         3
 #endif
-#define Y_MIN_PIN          14
-#define Y_MAX_PIN          15
+#define Y_MIN_PIN          2
+#define Y_MAX_PIN          2
 #define Z_MIN_PIN          18
 #define Z_MAX_PIN          19
 
@@ -82,7 +82,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  32
+  #define Z_MIN_PROBE_PIN  19
 #endif
 
 //
@@ -191,9 +191,9 @@
 //
 // Temperature Sensors
 //
-#define TEMP_0_PIN         13   // Analog Input
+#define TEMP_0_PIN         14   // Analog Input
 #define TEMP_1_PIN         15   // Analog Input
-#define TEMP_BED_PIN       14   // Analog Input
+#define TEMP_BED_PIN       13   // Analog Input
 
 // SPI for Max6675 or Max31855 Thermocouple
 #if DISABLED(SDSUPPORT)
@@ -235,14 +235,14 @@
   #define RAMPS_D10_PIN    10
 #endif
 
-#define HEATER_0_PIN       RAMPS_D10_PIN
+#define HEATER_0_PIN       RAMPS_D9_PIN
 
 #if ENABLED(IS_RAMPS_EFB)                      // Hotend, Fan, Bed
   #define HEATER_BED_PIN   RAMPS_D8_PIN
 #elif ENABLED(IS_RAMPS_EEF)                    // Hotend, Hotend, Fan
   #define HEATER_1_PIN     RAMPS_D9_PIN
 #elif ENABLED(IS_RAMPS_EEB)                    // Hotend, Hotend, Bed
-  #define HEATER_1_PIN     RAMPS_D9_PIN
+  #define HEATER_1_PIN     RAMPS_D10_PIN
   #define HEATER_BED_PIN   RAMPS_D8_PIN
 #elif ENABLED(IS_RAMPS_EFF)                    // Hotend, Fan, Fan
   #define FAN1_PIN         RAMPS_D8_PIN
@@ -261,7 +261,7 @@
   #elif ENABLED(IS_RAMPS_EEF) || ENABLED(IS_RAMPS_SF) // Hotend, Hotend, Fan or Spindle, Fan
     #define FAN_PIN        RAMPS_D8_PIN
   #elif ENABLED(IS_RAMPS_EEB)                         // Hotend, Hotend, Bed
-    #define FAN_PIN         4   // IO pin. Buffer needed
+    #define FAN_PIN         5   // IO pin. Buffer needed
   #else                                               // Non-specific are "EFB" (i.e., "EFBF" or "EFBE")
     #define FAN_PIN        RAMPS_D9_PIN
   #endif
